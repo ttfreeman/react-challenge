@@ -1,0 +1,8 @@
+- removed class="content" from index.js . It was likely supposed to be className but there was no corrsponding class name of content in index.css
+- React Hooks to manage local state
+- move each section into a separate functional component (to make it reusable and make the app scalable)
+- changed the App function to arrow function format
+- Install UUID
+- add functionality to have multiple users added or removed
+- store users data in localstorage for persistence
+-
