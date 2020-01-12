@@ -1,13 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import UsersContext from "../context/users-context";
 
 import UserLabel from "./UserLabel";
 const uuid = require("uuid");
 
 const AddUserForm = () => {
+  const inputEl = useRef(null);
   const { dispatch } = useContext(UsersContext);
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
+
+  useEffect(() => {
+    inputEl.current.focus();
+  }, []);
 
   const addUser = e => {
     e.preventDefault();
@@ -20,6 +25,7 @@ const AddUserForm = () => {
     setName("");
     setAge("");
     document.getElementById("inputform").reset();
+    inputEl.current.focus();
   };
 
   return (
@@ -33,6 +39,7 @@ const AddUserForm = () => {
           <div className="field">
             <label className="label">Name: </label>
             <input
+              ref={inputEl}
               className="input"
               type="text"
               placeholder="Enter your name, ex. Kevin"
@@ -49,9 +56,18 @@ const AddUserForm = () => {
               type="number"
               placeholder="Enter your age, ex. 44"
               onChange={e => setAge(e.target.value)}
+              data-testid="age-input"
             />
           </div>
-          <button>add user</button>
+          <button
+            style={{
+              background: "#b7fcae",
+              margin: "20px"
+            }}
+            disabled={!name || !age}
+          >
+            add user
+          </button>
         </form>
       </div>
     </>

@@ -10,7 +10,10 @@ const User = ({ user }) => {
         Name: <span data-testid="username">{user.name}</span>{" "}
       </p>
       <p>Age: {user.age} </p>
-      <button onClick={() => dispatch({ type: "REMOVE_USER", id: user.id })}>
+      <button
+        onClick={() => dispatch({ type: "REMOVE_USER", id: user.id })}
+        style={{ background: "red" }}
+      >
         x
       </button>
     </div>

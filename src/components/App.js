@@ -29,7 +29,7 @@ const App = () => {
     <UsersContext.Provider value={{ users, dispatch }}>
       <div className="App">
         <div>
-          <h2 className="subtitle">React Challenge! Good Luck</h2>
+          <h2 className="subtitle">React Challenge! by: T.F.</h2>
         </div>
 
         {/* Collect User Inputs */}

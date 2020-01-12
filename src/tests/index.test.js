@@ -10,7 +10,7 @@ test("renders without crashing", () => {
 });
 
 test("realtime input text is reflected in label", () => {
-  const { getByTestId } = render(<App />);
+  const { getByText, getByTestId } = render(<App />);
   const inputName = getByTestId("name-input");
 
   const newName = "Be";
@@ -24,10 +24,13 @@ test("realtime input text is reflected in label", () => {
 test("new user added to screen by clicking button", () => {
   const { getByText, getByTestId, rerender } = render(<App />);
   const inputName = getByTestId("name-input");
+  const inputAge = getByTestId("age-input");
   const submitButton = getByText("add user");
 
   const newName = "Ben";
+  const newAge = 12;
   fireEvent.change(inputName, { target: { value: newName } });
+  fireEvent.change(inputAge, { target: { value: newAge } });
   fireEvent.click(submitButton);
 
   // rerender(<App />);
