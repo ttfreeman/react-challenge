@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer } from "react";
-// import "./index.css";
 
 import UserList from "./UserList";
 import AddUserForm from "./AddUserForm";
@@ -10,10 +9,9 @@ import UsersContext from "../context/users-context";
 const App = () => {
   // MOST OF YOUR CODE GOES HERE
 
-  // const [name, setName] = useState("");
   const [users, dispatch] = useReducer(usersReducer, []);
-  // const [age, setAge] = useState(props.age);
 
+  // Populate the screen with the list of users from localstorage (if exist)
   useEffect(() => {
     const users = JSON.parse(localStorage.getItem("users"));
     if (users) {
@@ -21,6 +19,7 @@ const App = () => {
     }
   }, []);
 
+  // Persist the users data to localstorage
   useEffect(() => {
     localStorage.setItem("users", JSON.stringify(users));
   }, [users]);
@@ -35,6 +34,7 @@ const App = () => {
         {/* Collect User Inputs */}
         <AddUserForm />
       </div>
+      {/* List the users */}
       <UserList />
     </UsersContext.Provider>
   );
