@@ -5,8 +5,10 @@ const User = ({ user }) => {
   const { dispatch } = useContext(UsersContext);
 
   return (
-    <div className="input-display">
-      <p>Name: {user.name} </p>
+    <div>
+      <p>
+        Name: <span data-testid="username">{user.name}</span>{" "}
+      </p>
       <p>Age: {user.age} </p>
       <button onClick={() => dispatch({ type: "REMOVE_USER", id: user.id })}>
         x

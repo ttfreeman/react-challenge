@@ -37,6 +37,7 @@ const AddUserForm = () => {
               type="text"
               placeholder="Enter your name, ex. Kevin"
               onChange={e => setName(e.target.value)}
+              data-testid="name-input"
             />
           </div>
 
